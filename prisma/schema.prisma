@@ -1,0 +1,248 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(CLIENT)
+  company       String?
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  appointments  Appointment[]
+  quotes        Quote[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  nameAr      String?
+  nameFr      String?
+  description String
+  descriptionAr String?
+  descriptionFr String?
+  category    ServiceCategory
+  basePrice   Float
+  estimatedDuration Int // in minutes
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  appointmentServices AppointmentService[]
+  quoteItems         QuoteItem[]
+
+  @@map("services")
+}
+
+model Appointment {
+  id              String            @id @default(cuid())
+  userId          String
+  clientName      String
+  clientEmail     String
+  clientPhone     String
+  company         String?
+  deviceType      DeviceType
+  deviceBrand     String
+  deviceModel     String?
+  problemDescription String
+  urgencyLevel    UrgencyLevel     @default(NORMAL)
+  preferredDate   DateTime
+  preferredTime   String
+  status          AppointmentStatus @default(PENDING)
+  notes           String?
+  diagnosis       String?
+  estimatedCost   Float?
+  actualCost      Float?
+  completedAt     DateTime?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  user            User             @relation(fields: [userId], references: [id])
+  services        AppointmentService[]
+  quote           Quote?
+
+  @@map("appointments")
+}
+
+model AppointmentService {
+  id            String      @id @default(cuid())
+  appointmentId String
+  serviceId     String
+  quantity      Int         @default(1)
+  price         Float
+  
+  appointment   Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  service       Service     @relation(fields: [serviceId], references: [id])
+
+  @@map("appointment_services")
+}
+
+model Quote {
+  id            String      @id @default(cuid())
+  appointmentId String      @unique
+  userId        String
+  totalAmount   Float
+  validUntil    DateTime
+  status        QuoteStatus @default(PENDING)
+  notes         String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  user          User        @relation(fields: [userId], references: [id])
+  items         QuoteItem[]
+
+  @@map("quotes")
+}
+
+model QuoteItem {
+  id          String  @id @default(cuid())
+  quoteId     String
+  serviceId   String
+  description String
+  quantity    Int     @default(1)
+  unitPrice   Float
+  totalPrice  Float
+
+  quote       Quote   @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  service     Service @relation(fields: [serviceId], references: [id])
+
+  @@map("quote_items")
+}
+
+model ContactMessage {
+  id        String      @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  subject   String
+  message   String
+  type      MessageType @default(GENERAL)
+  urgency   UrgencyLevel @default(NORMAL)
+  status    MessageStatus @default(UNREAD)
+  createdAt DateTime    @default(now())
+
+  @@map("contact_messages")
+}
+
+enum UserRole {
+  CLIENT
+  ADMIN
+  TECHNICIAN
+}
+
+enum ServiceCategory {
+  LAPTOP_REPAIR
+  DESKTOP_REPAIR
+  HARDWARE_REPLACEMENT
+  DATA_RECOVERY
+  MAINTENANCE
+  ON_SITE
+  EMERGENCY
+}
+
+enum DeviceType {
+  MACBOOK
+  WINDOWS_LAPTOP
+  DESKTOP_PC
+  ALL_IN_ONE
+  TABLET
+  OTHER
+}
+
+enum UrgencyLevel {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  DIAGNOSED
+  AWAITING_PARTS
+  READY
+  COMPLETED
+  CANCELLED
+}
+
+enum QuoteStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum MessageType {
+  GENERAL
+  QUOTE_REQUEST
+  SUPPORT
+  COMPLAINT
+  PARTNERSHIP
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+  REPLIED
+  CLOSED
+}
