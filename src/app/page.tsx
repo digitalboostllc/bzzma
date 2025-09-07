@@ -5,15 +5,54 @@ export default function HomePage() {
   
   return (
     <>
-      {/* Hero Section - Apple Style */}
+      {/* Hero Section - Apple Style Abstract Geometry */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent opacity-30"></div>
+        {/* Dynamic Mesh Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-700/90"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-blue-900/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-purple-900/5 via-transparent to-indigo-900/5"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-1/4 left-10 w-32 h-32 bg-red-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-20 w-24 h-24 bg-yellow-400/15 rounded-full blur-2xl"></div>
+        {/* Geometric Shapes Layer 1 - Large Background Elements */}
+        <div className="absolute inset-0">
+          {/* Large Rounded Rectangle - Top Left */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/8 to-purple-500/8 rounded-3xl transform -rotate-12 -translate-x-32 -translate-y-32 animate-pulse"></div>
+          
+          {/* Large Circle - Top Right */}
+          <div className="absolute top-20 right-0 w-80 h-80 bg-gradient-to-br from-emerald-500/6 to-cyan-500/6 rounded-full transform translate-x-40 -translate-y-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+          
+          {/* Medium Rectangle - Bottom Left */}
+          <div className="absolute bottom-20 left-20 w-72 h-48 bg-gradient-to-r from-indigo-500/7 to-blue-500/7 rounded-2xl transform rotate-6 animate-pulse" style={{animationDelay: '2s'}}></div>
+          
+          {/* Large Oval - Bottom Right */}
+          <div className="absolute bottom-0 right-0 w-96 h-64 bg-gradient-to-l from-violet-500/5 to-pink-500/5 rounded-full transform translate-x-24 translate-y-16 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        </div>
+        
+        {/* Geometric Shapes Layer 2 - Medium Elements */}
+        <div className="absolute inset-0">
+          {/* Medium Squares */}
+          <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-br from-amber-400/10 to-orange-400/10 rounded-xl transform rotate-45 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute top-2/3 right-1/3 w-24 h-24 bg-gradient-to-br from-teal-400/8 to-green-400/8 rounded-lg transform -rotate-12 animate-pulse" style={{animationDelay: '2.5s'}}></div>
+          
+          {/* Medium Circles */}
+          <div className="absolute top-1/2 left-3/4 w-40 h-40 bg-gradient-to-br from-rose-400/6 to-red-400/6 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
+          <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-sky-400/7 to-blue-400/7 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
+        </div>
+        
+        {/* Geometric Shapes Layer 3 - Small Accent Elements */}
+        <div className="absolute inset-0">
+          {/* Small Floating Elements */}
+          <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-lg transform rotate-12 animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute top-3/4 left-1/3 w-20 h-20 bg-gradient-to-br from-yellow-300/8 to-amber-300/8 rounded-full animate-pulse" style={{animationDelay: '1.2s'}}></div>
+          <div className="absolute bottom-1/4 right-1/2 w-12 h-12 bg-gradient-to-br from-purple-300/10 to-violet-300/10 rounded-md transform -rotate-45 animate-pulse" style={{animationDelay: '2.8s'}}></div>
+          
+          {/* Subtle Line Elements */}
+          <div className="absolute top-1/2 left-0 w-64 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -rotate-12"></div>
+          <div className="absolute bottom-1/2 right-0 w-48 h-px bg-gradient-to-r from-transparent via-blue-300/15 to-transparent transform rotate-12"></div>
+        </div>
+        
+        {/* Dynamic Overlay Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-slate-800/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/3 to-transparent"></div>
         
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
           {/* Badge */}
