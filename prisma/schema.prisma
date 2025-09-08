@@ -264,7 +264,7 @@ model WebProject {
   projectType WebProjectType
   budget      String
   description String
-  features    String[]
+  features    String             // JSON string instead of array
   timeline    String?
   status      ProjectStatus      @default(PROPOSAL)
   price       Float?
@@ -288,9 +288,9 @@ model LaptopInventory {
   price        Float
   originalPrice Float?
   inStock      Boolean         @default(true)
-  features     String[]
+  features     String          // JSON string instead of array
   description  String?
-  images       String[]
+  images       String          // JSON string instead of array
   category     LaptopCategory
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
@@ -326,7 +326,7 @@ model BusinessLead {
   phone       String?
   industry    String?
   employees   String
-  services    BusinessService[]
+  services    String              // JSON string instead of array
   budget      String?
   timeline    String?
   description String
