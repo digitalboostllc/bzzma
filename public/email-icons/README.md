@@ -1,22 +1,23 @@
 # Email Icons for Bzz.ma
 
-Professional icons for email templates, hosted on Vercel and optimized for email clients.
+**Authentic Font Awesome icons** for email templates, hosted on Vercel and optimized for email clients.
 
-## 📧 Available Icons
+## 📧 Available Icons (Font Awesome 6.4.0)
 
 | Icon | Filename | URL | Size |
 |------|----------|-----|------|
 | 📞 | `phone.png` | `https://bzzma.vercel.app/email-icons/phone.png` | 0.3KB |
-| ✉️ | `email.png` | `https://bzzma.vercel.app/email-icons/email.png` | 0.2KB |
-| 💬 | `whatsapp.png` | `https://bzzma.vercel.app/email-icons/whatsapp.png` | 0.4KB |
-| 🌐 | `web.png` | `https://bzzma.vercel.app/email-icons/web.png` | 0.4KB |
+| ✉️ | `envelope.png` | `https://bzzma.vercel.app/email-icons/envelope.png` | 0.3KB |
+| 💬 | `whatsapp.png` | `https://bzzma.vercel.app/email-icons/whatsapp.png` | 0.5KB |
+| 🌐 | `globe.png` | `https://bzzma.vercel.app/email-icons/globe.png` | 0.4KB |
 | 💻 | `laptop.png` | `https://bzzma.vercel.app/email-icons/laptop.png` | 0.2KB |
-| ⚙️ | `settings.png` | `https://bzzma.vercel.app/email-icons/settings.png` | 0.4KB |
-| 🎧 | `headset.png` | `https://bzzma.vercel.app/email-icons/headset.png` | 0.3KB |
-| 💾 | `database.png` | `https://bzzma.vercel.app/email-icons/database.png` | 0.3KB |
-| 🔍 | `search.png` | `https://bzzma.vercel.app/email-icons/search.png` | 0.3KB |
+| ⚙️ | `cog.png` | `https://bzzma.vercel.app/email-icons/cog.png` | 0.3KB |
+| 🔧 | `tools.png` | `https://bzzma.vercel.app/email-icons/tools.png` | 0.4KB |
+| 🎧 | `headset.png` | `https://bzzma.vercel.app/email-icons/headset.png` | 0.4KB |
+| 💾 | `database.png` | `https://bzzma.vercel.app/email-icons/database.png` | 0.4KB |
+| 🔍 | `search.png` | `https://bzzma.vercel.app/email-icons/search.png` | 0.4KB |
 | ⏰ | `clock.png` | `https://bzzma.vercel.app/email-icons/clock.png` | 0.3KB |
-| 🤝 | `handshake.png` | `https://bzzma.vercel.app/email-icons/handshake.png` | 0.3KB |
+| 🤝 | `handshake.png` | `https://bzzma.vercel.app/email-icons/handshake.png` | 0.4KB |
 
 ## 🎨 Design Specifications
 
@@ -24,7 +25,7 @@ Professional icons for email templates, hosted on Vercel and optimized for email
 - **Format**: PNG with transparency
 - **Color**: White icons on transparent background
 - **Optimization**: Maximum compression for email compatibility
-- **Style**: Font Awesome inspired, clean line art
+- **Style**: Authentic Font Awesome 6.4.0 icons with white fill
 
 ## 📧 Email Usage
 

@@ -5,11 +5,12 @@ const path = require('path');
 const svgDir = path.join(__dirname, '../public/email-icons');
 const iconFiles = [
   'phone.svg',
-  'email.svg', 
+  'envelope.svg', 
   'whatsapp.svg',
-  'web.svg',
+  'globe.svg',
   'laptop.svg',
-  'settings.svg',
+  'cog.svg', // settings
+  'tools.svg', // for maintenance  
   'headset.svg',
   'database.svg',
   'search.svg',
