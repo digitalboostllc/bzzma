@@ -19,6 +19,7 @@ export function Navbar() {
   const navigation = [
     { name: 'Réparation', href: '/services' },
     { name: 'Création Web', href: '/creation-web' },
+    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Laptops', href: '/vente-laptops' },
     { name: 'Entreprise', href: '/solutions-entreprise' },
     { name: 'Contact', href: '/contact' },

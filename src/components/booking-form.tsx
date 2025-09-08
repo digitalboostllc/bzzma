@@ -16,7 +16,7 @@ const bookingSchema = z.object({
   clientEmail: z.string().email('Email invalide'),
   clientPhone: z.string().min(10, 'Numéro de téléphone invalide'),
   company: z.string().optional(),
-  deviceType: z.enum(['MACBOOK', 'WINDOWS_LAPTOP', 'DESKTOP_PC', 'ALL_IN_ONE', 'TABLET', 'OTHER']),
+  deviceType: z.enum(['MACBOOK', 'WINDOWS_LAPTOP', 'DESKTOP_PC', 'ALL_IN_ONE', 'TABLET', 'SMARTPHONE', 'SERVER', 'NETWORK_EQUIPMENT', 'OTHER']),
   deviceBrand: z.string().min(2, 'Marque requise'),
   deviceModel: z.string().optional(),
   problemDescription: z.string().min(10, 'Description détaillée requise'),
@@ -58,6 +58,9 @@ export function BookingForm({ onSuccess }: BookingFormProps) {
     { value: 'DESKTOP_PC', label: 'PC de Bureau' },
     { value: 'ALL_IN_ONE', label: 'All-in-One' },
     { value: 'TABLET', label: 'Tablette' },
+    { value: 'SMARTPHONE', label: 'Smartphone' },
+    { value: 'SERVER', label: 'Serveur' },
+    { value: 'NETWORK_EQUIPMENT', label: 'Équipement Réseau' },
     { value: 'OTHER', label: 'Autre' },
   ];
 

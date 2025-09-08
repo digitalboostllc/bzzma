@@ -16,7 +16,7 @@ const contactSchema = z.object({
   company: z.string().optional(),
   subject: z.string().min(5, 'Le sujet doit contenir au moins 5 caractères'),
   message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
-  type: z.enum(['GENERAL', 'QUOTE_REQUEST', 'SUPPORT', 'COMPLAINT', 'PARTNERSHIP']),
+  type: z.enum(['GENERAL', 'QUOTE_REQUEST', 'SUPPORT', 'COMPLAINT', 'PARTNERSHIP', 'WEB_PROJECT', 'LAPTOP_INQUIRY', 'BUSINESS_CONSULTATION']),
   urgency: z.enum(['LOW', 'NORMAL', 'HIGH', 'URGENT']),
 });
 
@@ -71,10 +71,13 @@ export function ContactForm() {
         <label className="form-label">Type de demande</label>
         <select {...register('type')} className="form-input">
           <option value="GENERAL">Demande générale</option>
-          <option value="QUOTE_REQUEST">Demande de devis</option>
+          <option value="QUOTE_REQUEST">Demande de devis réparation</option>
+          <option value="WEB_PROJECT">Projet de création web</option>
+          <option value="LAPTOP_INQUIRY">Achat de laptop</option>
+          <option value="BUSINESS_CONSULTATION">Solutions entreprise</option>
           <option value="SUPPORT">Support technique</option>
-          <option value="COMPLAINT">Réclamation</option>
           <option value="PARTNERSHIP">Partenariat</option>
+          <option value="COMPLAINT">Réclamation</option>
         </select>
         {errors.type && (
           <p className="text-red-500 text-sm mt-1">{errors.type.message}</p>
