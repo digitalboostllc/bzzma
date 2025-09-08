@@ -9,28 +9,28 @@ import { GoogleAnalytics } from "@/components/analytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bzz.ma - Solutions IT Professionnelles au Maroc",
-  description: "Réparation laptops, PC, MacBook pour entreprises. Service rapide et fiable partout au Maroc. Devis gratuit, intervention sur site.",
-  keywords: "réparation ordinateur Maroc, réparation MacBook Casablanca, services IT entreprises Maroc, Bzz",
-  authors: [{ name: "Bzz" }],
-  creator: "Bzz",
-  publisher: "Bzz",
+  title: "Bzz.ma - Solutions IT 360° au Maroc | Réparation, Web, Laptops, Entreprise",
+  description: "Votre partenaire IT 360° au Maroc : réparation professionnelle, création web, vente laptops, solutions entreprise. Un seul contact pour tous vos besoins technologiques.",
+  keywords: "solutions IT 360° Maroc, réparation MacBook Casablanca, création site web Maroc, vente laptop Casablanca, solutions informatiques entreprise, partenaire IT Maroc, Bzz.ma",
+  authors: [{ name: "Équipe Bzz" }],
+  creator: "Bzz.ma",
+  publisher: "Bzz.ma",
   metadataBase: new URL('https://bzz.ma'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Bzz.ma - Solutions IT Professionnelles",
-    description: "Réparation laptops, PC, MacBook pour entreprises au Maroc",
+    title: "Bzz.ma - Votre Partenaire IT 360° au Maroc",
+    description: "Solutions IT complètes : réparation, création web, vente laptops et consulting entreprise. Votre partenaire technologique unique.",
     url: "https://bzz.ma",
-    siteName: "Bzz",
+    siteName: "Bzz.ma",
     locale: "fr_MA",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bzz.ma - Solutions IT Professionnelles",
-    description: "Réparation laptops, PC, MacBook pour entreprises au Maroc",
+    title: "Bzz.ma - Solutions IT 360° au Maroc",
+    description: "Réparation, création web, laptops et solutions entreprise. Votre partenaire IT complet au Maroc.",
   },
   robots: {
     index: true,

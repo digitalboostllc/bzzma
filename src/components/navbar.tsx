@@ -17,14 +17,16 @@ export function Navbar() {
   }, []);
 
   const navigation = [
-    { name: 'Services', href: '/services' },
-    { name: 'Notre Processus', href: '/process' },
+    { name: 'Réparation', href: '/services' },
+    { name: 'Création Web', href: '/creation-web' },
+    { name: 'Laptops', href: '/vente-laptops' },
+    { name: 'Entreprise', href: '/solutions-entreprise' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <nav className="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] sm:w-[90%] max-w-5xl">
-      <div className="bg-white/90 backdrop-blur-xl border border-white/30 shadow-2xl shadow-black/10 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300">
+    <nav className="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 w-[96%] sm:w-[92%] max-w-6xl">
+      <div className="bg-white/90 backdrop-blur-xl border border-white/30 shadow-2xl shadow-black/10 rounded-xl sm:rounded-2xl py-1.5 sm:py-2 px-4 sm:px-8 transition-all duration-300">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -96,10 +98,10 @@ export function Navbar() {
           <div className="hidden lg:flex items-center space-x-4">
             <a
               href="tel:+212522334455"
-              className="flex items-center text-slate-600 hover:text-slate-900 font-medium transition-colors group"
+              className="group text-slate-600 hover:text-slate-900 p-2 sm:p-3 rounded-xl hover:bg-slate-100 transition-all duration-300"
+              title="Appelez-nous: +212 5 22 33 44 55"
             >
-              <Phone className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-              <span className="text-sm">+212 5 22 33 44 55</span>
+              <Phone className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
             </a>
             
             <Link

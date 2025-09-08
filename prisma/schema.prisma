@@ -196,6 +196,9 @@ enum ServiceCategory {
   MAINTENANCE
   ON_SITE
   EMERGENCY
+  WEB_DEVELOPMENT
+  LAPTOP_SALES
+  BUSINESS_SOLUTIONS
 }
 
 enum DeviceType {
@@ -238,6 +241,9 @@ enum MessageType {
   SUPPORT
   COMPLAINT
   PARTNERSHIP
+  WEB_PROJECT
+  LAPTOP_INQUIRY
+  BUSINESS_CONSULTATION
 }
 
 enum MessageStatus {
@@ -245,4 +251,151 @@ enum MessageStatus {
   READ
   REPLIED
   CLOSED
+}
+
+// New 360° Service Models
+
+model WebProject {
+  id          String             @id @default(cuid())
+  clientName  String
+  clientEmail String
+  clientPhone String?
+  company     String?
+  projectType WebProjectType
+  budget      String
+  description String
+  features    String[]
+  timeline    String?
+  status      ProjectStatus      @default(PROPOSAL)
+  price       Float?
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@map("web_projects")
+}
+
+model LaptopInventory {
+  id           String          @id @default(cuid())
+  brand        String
+  model        String
+  condition    LaptopCondition
+  processor    String
+  ram          String
+  storage      String
+  screen       String
+  price        Float
+  originalPrice Float?
+  inStock      Boolean         @default(true)
+  features     String[]
+  description  String?
+  images       String[]
+  category     LaptopCategory
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  sales        LaptopSale[]
+
+  @@map("laptop_inventory")
+}
+
+model LaptopSale {
+  id         String           @id @default(cuid())
+  laptopId   String
+  laptop     LaptopInventory  @relation(fields: [laptopId], references: [id])
+  clientName String
+  clientEmail String
+  clientPhone String?
+  company    String?
+  price      Float
+  status     SaleStatus       @default(PENDING)
+  deliveryAddress String?
+  notes      String?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@map("laptop_sales")
+}
+
+model BusinessLead {
+  id          String              @id @default(cuid())
+  company     String
+  contactName String
+  email       String
+  phone       String?
+  industry    String?
+  employees   String
+  services    BusinessService[]
+  budget      String?
+  timeline    String?
+  description String
+  status      LeadStatus          @default(NEW)
+  priority    UrgencyLevel        @default(NORMAL)
+  assignedTo  String?
+  notes       String?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@map("business_leads")
+}
+
+// New 360° Enums
+
+enum WebProjectType {
+  WEBSITE
+  ECOMMERCE
+  WEB_APP
+  SEO_MARKETING
+  MAINTENANCE
+}
+
+enum ProjectStatus {
+  PROPOSAL
+  APPROVED
+  IN_PROGRESS
+  TESTING
+  COMPLETED
+  ON_HOLD
+  CANCELLED
+}
+
+enum LaptopCondition {
+  NEW
+  REFURBISHED_EXCELLENT
+  REFURBISHED_GOOD
+  USED_GOOD
+}
+
+enum LaptopCategory {
+  MACBOOK
+  BUSINESS
+  GAMING
+  BUDGET
+  WORKSTATION
+}
+
+enum SaleStatus {
+  PENDING
+  CONFIRMED
+  DELIVERED
+  CANCELLED
+}
+
+enum BusinessService {
+  INFRASTRUCTURE
+  CLOUD_MIGRATION
+  CYBERSECURITY
+  IT_SUPPORT
+  CONSULTING
+  BACKUP_RECOVERY
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  PROPOSAL_SENT
+  NEGOTIATION
+  WON
+  LOST
 }

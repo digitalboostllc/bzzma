@@ -1,87 +1,48 @@
 import Link from 'next/link';
-import { ArrowRight, Shield, Clock, Award, Users, CheckCircle, Star, Laptop, Monitor, Wrench, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Award, Users, CheckCircle, Star, Laptop, Monitor, Wrench, MapPin, Phone, MessageCircle, Globe, ShoppingCart, Building, Code, Database, Zap } from 'lucide-react';
 
 export default function HomePage() {
   
   return (
     <>
-      {/* Hero Section - Apple Style Abstract Geometry */}
+      {/* Hero Section - Apple Style */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 overflow-hidden">
-        {/* Dynamic Mesh Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-700/90"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-blue-900/10 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-purple-900/5 via-transparent to-indigo-900/5"></div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent opacity-30"></div>
         
-        {/* Geometric Shapes Layer 1 - Large Background Elements */}
-        <div className="absolute inset-0">
-          {/* Large Rounded Rectangle - Top Left */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/8 to-purple-500/8 rounded-3xl transform -rotate-12 -translate-x-32 -translate-y-32 animate-pulse"></div>
-          
-          {/* Large Circle - Top Right */}
-          <div className="absolute top-20 right-0 w-80 h-80 bg-gradient-to-br from-emerald-500/6 to-cyan-500/6 rounded-full transform translate-x-40 -translate-y-20 animate-pulse" style={{animationDelay: '1s'}}></div>
-          
-          {/* Medium Rectangle - Bottom Left */}
-          <div className="absolute bottom-20 left-20 w-72 h-48 bg-gradient-to-r from-indigo-500/7 to-blue-500/7 rounded-2xl transform rotate-6 animate-pulse" style={{animationDelay: '2s'}}></div>
-          
-          {/* Large Oval - Bottom Right */}
-          <div className="absolute bottom-0 right-0 w-96 h-64 bg-gradient-to-l from-violet-500/5 to-pink-500/5 rounded-full transform translate-x-24 translate-y-16 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-        </div>
-        
-        {/* Geometric Shapes Layer 2 - Medium Elements */}
-        <div className="absolute inset-0">
-          {/* Medium Squares */}
-          <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-br from-amber-400/10 to-orange-400/10 rounded-xl transform rotate-45 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-          <div className="absolute top-2/3 right-1/3 w-24 h-24 bg-gradient-to-br from-teal-400/8 to-green-400/8 rounded-lg transform -rotate-12 animate-pulse" style={{animationDelay: '2.5s'}}></div>
-          
-          {/* Medium Circles */}
-          <div className="absolute top-1/2 left-3/4 w-40 h-40 bg-gradient-to-br from-rose-400/6 to-red-400/6 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
-          <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-sky-400/7 to-blue-400/7 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
-        </div>
-        
-        {/* Geometric Shapes Layer 3 - Small Accent Elements */}
-        <div className="absolute inset-0">
-          {/* Small Floating Elements */}
-          <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-lg transform rotate-12 animate-pulse" style={{animationDelay: '4s'}}></div>
-          <div className="absolute top-3/4 left-1/3 w-20 h-20 bg-gradient-to-br from-yellow-300/8 to-amber-300/8 rounded-full animate-pulse" style={{animationDelay: '1.2s'}}></div>
-          <div className="absolute bottom-1/4 right-1/2 w-12 h-12 bg-gradient-to-br from-purple-300/10 to-violet-300/10 rounded-md transform -rotate-45 animate-pulse" style={{animationDelay: '2.8s'}}></div>
-          
-          {/* Subtle Line Elements */}
-          <div className="absolute top-1/2 left-0 w-64 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -rotate-12"></div>
-          <div className="absolute bottom-1/2 right-0 w-48 h-px bg-gradient-to-r from-transparent via-blue-300/15 to-transparent transform rotate-12"></div>
-        </div>
-        
-        {/* Dynamic Overlay Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-slate-800/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/3 to-transparent"></div>
+        {/* Floating Elements */}
+        <div className="absolute top-1/4 left-10 w-32 h-32 bg-red-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-20 w-24 h-24 bg-yellow-400/15 rounded-full blur-2xl"></div>
         
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
           {/* Badge */}
           <div className="inline-flex items-center bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-8 hover:bg-white/20 transition-colors backdrop-blur-sm">
             <Wrench className="h-4 w-4 mr-2" />
-            Leader en Solutions IT au Maroc
+            Solutions IT 360° au Maroc
           </div>
           
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8">
-            <span className="block">Réparation IT</span>
-            <span className="block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-              Professionnelle
+            <span className="block">Votre Partenaire IT</span>
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              360° Complet
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Spécialiste MacBook, PC et solutions informatiques pour entreprises marocaines. 
-            <strong className="text-white">Intervention rapide, expertise certifiée.</strong>
+          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+            <strong className="text-white">Réparation • Création Web • Vente Laptops • Solutions Entreprise</strong><br/>
+            Votre partenaire technologique unique pour tous vos besoins informatiques.
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href="/contact" className="group bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
-              Obtenir un Devis Gratuit
+              Découvrir Nos Solutions
               <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link href="/booking" className="group border-2 border-white/30 hover:border-white/50 text-white hover:text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 backdrop-blur-sm">
-              Réserver une Intervention
+              Commencer un Projet
             </Link>
           </div>
           
@@ -114,15 +75,117 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* 360° Services Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Nos Services d'Excellence
+              Solutions IT 360°
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              De la réparation à la création, en passant par la vente et le conseil : 
+              votre partenaire technologique unique pour tous vos projets IT.
+            </p>
+          </div>
+
+          {/* 360° Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            {/* Réparation IT */}
+            <Link href="/services" className="group bg-gradient-to-br from-red-50 to-orange-50 hover:from-red-100 hover:to-orange-100 rounded-3xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-red-500 to-orange-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Wrench className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Réparation IT</h3>
+              <p className="text-slate-600 mb-4">MacBook, PC, récupération de données et maintenance professionnelle</p>
+              <div className="flex items-center text-red-600 font-semibold">
+                Explorer <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Création Web */}
+            <Link href="/creation-web" className="group bg-gradient-to-br from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 rounded-3xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-blue-500 to-indigo-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Création Web</h3>
+              <p className="text-slate-600 mb-4">Sites web, e-commerce, applications et stratégie digitale complète</p>
+              <div className="flex items-center text-blue-600 font-semibold">
+                Explorer <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Vente Laptops */}
+            <Link href="/vente-laptops" className="group bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 rounded-3xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-green-500 to-emerald-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <ShoppingCart className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Vente Laptops</h3>
+              <p className="text-slate-600 mb-4">Laptops neufs et reconditionnés, configurations sur mesure</p>
+              <div className="flex items-center text-green-600 font-semibold">
+                Explorer <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Solutions Entreprise */}
+            <Link href="/solutions-entreprise" className="group bg-gradient-to-br from-purple-50 to-violet-50 hover:from-purple-100 hover:to-violet-100 rounded-3xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-purple-500 to-violet-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Building className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Solutions Entreprise</h3>
+              <p className="text-slate-600 mb-4">Consulting IT, sécurité, cloud et contrats de maintenance</p>
+              <div className="flex items-center text-purple-600 font-semibold">
+                Explorer <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Why Choose Our 360° Approach */}
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-12">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Pourquoi Choisir Notre Approche 360° ?</h3>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Un seul partenaire pour tous vos besoins technologiques
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-8 w-8 text-blue-600" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Efficacité Maximale</h4>
+                <p className="text-slate-600">Un seul contact pour tous vos projets IT, de la réparation au développement</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-green-600" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Expertise Transversale</h4>
+                <p className="text-slate-600">Notre équipe maîtrise tous les aspects de l'écosystème technologique</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Award className="h-8 w-8 text-purple-600" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Solutions Intégrées</h4>
+                <p className="text-slate-600">Tous nos services se complètent pour créer un écosystème IT parfait</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Original Services Section - Now Detailed */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Nos Expertises Détaillées
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Solutions complètes de réparation IT avec expertise technique de pointe
+              Découvrez en détail chaque service de notre gamme complète 360°
             </p>
           </div>
           

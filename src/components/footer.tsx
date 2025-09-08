@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { MapPin, Phone, Mail, MessageCircle, Wrench, Laptop, Monitor, HardDrive } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Wrench, Laptop, Monitor, HardDrive, Globe, ShoppingCart, Building } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -59,8 +59,8 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-slate-300 mb-6 max-w-md leading-relaxed">
-              Leader en solutions IT au Maroc. Spécialiste MacBook, PC et serveurs pour entreprises. 
-              <strong className="text-white">Intervention rapide, expertise certifiée.</strong>
+              Votre partenaire IT 360° au Maroc. Réparation, création web, vente laptops et solutions entreprise. 
+              <strong className="text-white">Un seul contact pour tous vos besoins technologiques.</strong>
             </p>
             
             {/* Contact Info */}
@@ -113,35 +113,35 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* 360° Services */}
           <div>
             <h3 className="text-lg font-bold mb-6 flex items-center">
               <Wrench className="h-5 w-5 mr-2 text-red-500" />
-              Nos Services
+              Solutions 360°
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/services" className="text-slate-300 hover:text-white transition-colors flex items-center group">
                   <Laptop className="h-4 w-4 mr-2 text-slate-500 group-hover:text-red-500 transition-colors" />
-                  Réparation MacBook
+                  Réparation IT
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-slate-300 hover:text-white transition-colors flex items-center group">
-                  <Monitor className="h-4 w-4 mr-2 text-slate-500 group-hover:text-red-500 transition-colors" />
-                  Réparation PC & Serveurs
+                <Link href="/creation-web" className="text-slate-300 hover:text-white transition-colors flex items-center group">
+                  <Globe className="h-4 w-4 mr-2 text-slate-500 group-hover:text-blue-500 transition-colors" />
+                  Création Web
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-slate-300 hover:text-white transition-colors flex items-center group">
-                  <HardDrive className="h-4 w-4 mr-2 text-slate-500 group-hover:text-red-500 transition-colors" />
-                  Récupération Données
+                <Link href="/vente-laptops" className="text-slate-300 hover:text-white transition-colors flex items-center group">
+                  <ShoppingCart className="h-4 w-4 mr-2 text-slate-500 group-hover:text-green-500 transition-colors" />
+                  Vente Laptops
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-slate-300 hover:text-white transition-colors flex items-center group">
-                  <MapPin className="h-4 w-4 mr-2 text-slate-500 group-hover:text-red-500 transition-colors" />
-                  Service Sur Site
+                <Link href="/solutions-entreprise" className="text-slate-300 hover:text-white transition-colors flex items-center group">
+                  <Building className="h-4 w-4 mr-2 text-slate-500 group-hover:text-purple-500 transition-colors" />
+                  Solutions Entreprise
                 </Link>
               </li>
             </ul>
