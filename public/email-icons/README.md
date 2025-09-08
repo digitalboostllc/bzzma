@@ -21,11 +21,11 @@
 
 ## 🎨 Design Specifications
 
-- **Size**: 24x24 pixels
+- **Size**: 48x48 pixels (source), displayed at various sizes in email
 - **Format**: PNG with transparency
-- **Color**: White icons on transparent background
+- **Color**: Dark gray (#333333) icons on transparent background
 - **Optimization**: Maximum compression for email compatibility
-- **Style**: Authentic Font Awesome 6.4.0 icons with white fill
+- **Style**: Authentic Font Awesome 6.4.0 icons with dark fill for visibility
 
 ## 📧 Email Usage
 

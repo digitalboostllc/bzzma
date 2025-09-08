@@ -42,13 +42,13 @@ function downloadIcon(iconName, url) {
           // Modify SVG to be white color
           let svgContent = data;
           
-          // Add fill="white" to the path elements
-          svgContent = svgContent.replace(/<path/g, '<path fill="white"');
-          svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="white"'); // Replace any existing fills
+          // Add fill="#333333" (dark gray) to the path elements for visibility
+          svgContent = svgContent.replace(/<path/g, '<path fill="#333333"');
+          svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="#333333"'); // Replace any existing fills
           
           // If no paths, add fill to the svg element
           if (!svgContent.includes('<path')) {
-            svgContent = svgContent.replace('<svg', '<svg fill="white"');
+            svgContent = svgContent.replace('<svg', '<svg fill="#333333"');
           }
           
           const outputPath = path.join(outputDir, `${iconName}.svg`);

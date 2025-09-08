@@ -28,7 +28,7 @@ async function convertSvgToPng() {
     
     try {
       await sharp(svgPath)
-        .resize(24, 24) // 24x24 pixels for email
+        .resize(48, 48) // 48x48 pixels for better visibility
         .png({
           compressionLevel: 9, // Maximum compression
           quality: 90
