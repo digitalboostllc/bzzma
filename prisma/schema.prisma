@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -267,7 +267,7 @@ model WebProject {
   projectType WebProjectType
   budget      String
   description String
-  features    String             // JSON string instead of array
+  features    String[]           // PostgreSQL native array
   timeline    String?
   status      ProjectStatus      @default(PROPOSAL)
   price       Float?
@@ -291,9 +291,9 @@ model LaptopInventory {
   price        Float
   originalPrice Float?
   inStock      Boolean         @default(true)
-  features     String          // JSON string instead of array
+  features     String[]        // PostgreSQL native array
   description  String?
-  images       String          // JSON string instead of array
+  images       String[]        // PostgreSQL native array
   category     LaptopCategory
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
@@ -329,7 +329,7 @@ model BusinessLead {
   phone       String?
   industry    String?
   employees   String
-  services    String              // JSON string instead of array
+  services    BusinessService[]   // PostgreSQL native enum array
   budget      String?
   timeline    String?
   description String
