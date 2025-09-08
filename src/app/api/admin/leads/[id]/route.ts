@@ -23,11 +23,12 @@ const leadSchema = z.object({
 // GET /api/admin/leads/[id] - Fetch single lead
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const lead = await prisma.businessLead.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!lead) {
@@ -60,7 +61,7 @@ export async function GET(
 // PUT /api/admin/leads/[id] - Update lead
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json();
@@ -69,8 +70,9 @@ export async function PUT(
     const validatedData = leadSchema.parse(body);
 
     // Check if lead exists
+    const resolvedParams = await params;
     const existingLead = await prisma.businessLead.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!existingLead) {
@@ -87,7 +89,7 @@ export async function PUT(
     }
 
     const lead = await prisma.businessLead.update({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       data: {
         ...validatedData,
         services
@@ -122,12 +124,13 @@ export async function PUT(
 // DELETE /api/admin/leads/[id] - Delete lead
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check if lead exists
+    const resolvedParams = await params;
     const existingLead = await prisma.businessLead.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!existingLead) {
@@ -138,7 +141,7 @@ export async function DELETE(
     }
 
     await prisma.businessLead.delete({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     return NextResponse.json({

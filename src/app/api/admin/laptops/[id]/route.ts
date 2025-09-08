@@ -23,11 +23,12 @@ const laptopSchema = z.object({
 // GET /api/admin/laptops/[id] - Fetch single laptop
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const laptop = await prisma.laptopInventory.findUnique({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       include: {
         sales: {
           select: {
@@ -73,7 +74,7 @@ export async function GET(
 // PUT /api/admin/laptops/[id] - Update laptop
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json();
@@ -82,8 +83,9 @@ export async function PUT(
     const validatedData = laptopSchema.parse(body);
 
     // Check if laptop exists
+    const resolvedParams = await params;
     const existingLaptop = await prisma.laptopInventory.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!existingLaptop) {
@@ -105,7 +107,7 @@ export async function PUT(
     }
 
     const laptop = await prisma.laptopInventory.update({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       data: {
         ...validatedData,
         features,
@@ -142,12 +144,13 @@ export async function PUT(
 // DELETE /api/admin/laptops/[id] - Delete laptop
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check if laptop exists
+    const resolvedParams = await params;
     const existingLaptop = await prisma.laptopInventory.findUnique({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       include: {
         sales: true
       }
@@ -169,7 +172,7 @@ export async function DELETE(
     }
 
     await prisma.laptopInventory.delete({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     return NextResponse.json({

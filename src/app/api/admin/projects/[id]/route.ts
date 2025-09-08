@@ -22,11 +22,12 @@ const projectSchema = z.object({
 // GET /api/admin/projects/[id] - Fetch single project
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const project = await prisma.webProject.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!project) {
@@ -61,7 +62,7 @@ export async function GET(
 // PUT /api/admin/projects/[id] - Update project
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json();
@@ -70,8 +71,9 @@ export async function PUT(
     const validatedData = projectSchema.parse(body);
 
     // Check if project exists
+    const resolvedParams = await params;
     const existingProject = await prisma.webProject.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!existingProject) {
@@ -92,7 +94,7 @@ export async function PUT(
     const endDate = validatedData.endDate ? new Date(validatedData.endDate) : null;
 
     const project = await prisma.webProject.update({
-      where: { id: params.id },
+      where: { id: resolvedParams.id },
       data: {
         ...validatedData,
         features,
@@ -131,12 +133,13 @@ export async function PUT(
 // DELETE /api/admin/projects/[id] - Delete project
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check if project exists
+    const resolvedParams = await params;
     const existingProject = await prisma.webProject.findUnique({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     if (!existingProject) {
@@ -147,7 +150,7 @@ export async function DELETE(
     }
 
     await prisma.webProject.delete({
-      where: { id: params.id }
+      where: { id: resolvedParams.id }
     });
 
     return NextResponse.json({
