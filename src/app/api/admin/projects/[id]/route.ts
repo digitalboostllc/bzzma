@@ -11,7 +11,7 @@ const projectSchema = z.object({
   projectType: z.enum(['WEBSITE', 'ECOMMERCE', 'WEB_APP', 'SEO_MARKETING', 'MAINTENANCE']),
   budget: z.string().min(1, 'Budget is required'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
-  features: z.string(), // JSON string of features array
+  features: z.array(z.string()), // PostgreSQL array
   timeline: z.string().optional(),
   status: z.enum(['PROPOSAL', 'APPROVED', 'IN_PROGRESS', 'TESTING', 'COMPLETED', 'ON_HOLD', 'CANCELLED']),
   price: z.number().positive().optional(),
@@ -40,7 +40,6 @@ export async function GET(
     // Transform the data
     const transformedProject = {
       ...project,
-      features: project.features ? JSON.parse(project.features) : [],
       startDate: project.startDate ? project.startDate.toISOString().split('T')[0] : null,
       endDate: project.endDate ? project.endDate.toISOString().split('T')[0] : null,
     };
@@ -83,12 +82,6 @@ export async function PUT(
       );
     }
 
-    // Ensure features is a JSON string
-    let features = validatedData.features;
-    if (typeof features !== 'string') {
-      features = JSON.stringify(features);
-    }
-
     // Parse dates if provided
     const startDate = validatedData.startDate ? new Date(validatedData.startDate) : null;
     const endDate = validatedData.endDate ? new Date(validatedData.endDate) : null;
@@ -97,7 +90,6 @@ export async function PUT(
       where: { id: resolvedParams.id },
       data: {
         ...validatedData,
-        features,
         startDate,
         endDate
       }
@@ -107,7 +99,6 @@ export async function PUT(
       success: true,
       data: {
         ...project,
-        features: JSON.parse(project.features),
         startDate: project.startDate ? project.startDate.toISOString().split('T')[0] : null,
         endDate: project.endDate ? project.endDate.toISOString().split('T')[0] : null,
       }

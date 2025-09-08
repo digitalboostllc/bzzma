@@ -10,7 +10,7 @@ const leadSchema = z.object({
   phone: z.string().optional(),
   industry: z.string().optional(),
   employees: z.string().min(1, 'Employee count is required'),
-  services: z.string(), // JSON string of services array
+  services: z.array(z.enum(['INFRASTRUCTURE', 'CLOUD_MIGRATION', 'CYBERSECURITY', 'IT_SUPPORT', 'CONSULTING', 'BACKUP_RECOVERY'])), // PostgreSQL enum array
   budget: z.string().optional(),
   timeline: z.string().optional(),
   description: z.string().min(10, 'Description must be at least 10 characters'),
@@ -59,11 +59,8 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    // Transform the data to match frontend expectations
-    const transformedLeads = leads.map(lead => ({
-      ...lead,
-      services: lead.services ? JSON.parse(lead.services) : []
-    }));
+    // Data is already in correct format (PostgreSQL arrays)
+    const transformedLeads = leads;
 
     return NextResponse.json({ 
       success: true, 
@@ -87,25 +84,14 @@ export async function POST(request: NextRequest) {
     // Validate the input
     const validatedData = leadSchema.parse(body);
 
-    // Ensure services is a JSON string
-    let services = validatedData.services;
-    if (typeof services !== 'string') {
-      services = JSON.stringify(services);
-    }
-
+    // Data is already in correct format for PostgreSQL
     const lead = await prisma.businessLead.create({
-      data: {
-        ...validatedData,
-        services
-      }
+      data: validatedData
     });
 
     return NextResponse.json({
       success: true,
-      data: {
-        ...lead,
-        services: JSON.parse(lead.services)
-      }
+      data: lead
     }, { status: 201 });
 
   } catch (error) {

@@ -14,9 +14,9 @@ const laptopSchema = z.object({
   price: z.number().positive('Price must be positive'),
   originalPrice: z.number().positive().optional(),
   inStock: z.boolean().default(true),
-  features: z.string(), // JSON string of features array
+  features: z.array(z.string()), // PostgreSQL array
   description: z.string().optional(),
-  images: z.string(), // JSON string of images array
+  images: z.array(z.string()), // PostgreSQL array
   category: z.enum(['MACBOOK', 'BUSINESS', 'GAMING', 'BUDGET', 'WORKSTATION']),
 });
 
@@ -50,12 +50,8 @@ export async function GET(
       );
     }
 
-    // Transform the data
-    const transformedLaptop = {
-      ...laptop,
-      features: laptop.features ? JSON.parse(laptop.features) : [],
-      images: laptop.images ? JSON.parse(laptop.images) : []
-    };
+    // Data is already in correct format (PostgreSQL arrays)
+    const transformedLaptop = laptop;
 
     return NextResponse.json({
       success: true,
@@ -95,33 +91,15 @@ export async function PUT(
       );
     }
 
-    // Ensure features and images are JSON strings
-    let features = validatedData.features;
-    let images = validatedData.images;
-
-    if (typeof features !== 'string') {
-      features = JSON.stringify(features);
-    }
-    if (typeof images !== 'string') {
-      images = JSON.stringify(images);
-    }
-
+    // Data is already in correct format for PostgreSQL
     const laptop = await prisma.laptopInventory.update({
       where: { id: resolvedParams.id },
-      data: {
-        ...validatedData,
-        features,
-        images
-      }
+      data: validatedData
     });
 
     return NextResponse.json({
       success: true,
-      data: {
-        ...laptop,
-        features: JSON.parse(laptop.features),
-        images: JSON.parse(laptop.images)
-      }
+      data: laptop
     });
 
   } catch (error) {
