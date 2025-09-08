@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partenariat IT - Bzz.ma pour Cohorlinktis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Header */
+        .email-header {
+            background: #1d1d1f;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+        
+        .logo-bzz {
+            color: #ffffff;
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 0.9;
+        }
+        
+        .logo-dot {
+            color: #86868b;
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 0.9;
+            margin: 0 -2px;
+        }
+        
+        .logo-ma {
+            color: #86868b;
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            line-height: 0.9;
+            opacity: 0.9;
+        }
+        
+        .brand-info {
+            text-align: right;
+        }
+        
+        .brand-tagline {
+            color: #86868b;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .brand-description {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.3;
+        }
+        
+        /* Content */
+        .email-content {
+            padding: 32px 32px;
+        }
+        
+        .greeting {
+            font-size: 17px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            color: #515154;
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        .highlight-box {
+            background: #f5f5f7;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 3px solid #1d1d1f;
+            position: relative;
+        }
+        
+        .trust-section {
+            background: #1d1d1f;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .trust-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .trust-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        .trust-label {
+            font-size: 12px;
+            color: #86868b;
+        }
+        
+        .offer-section {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e5e5e7 100%);
+            padding: 28px;
+            border-radius: 12px;
+            margin: 24px 0;
+            border: 1px solid #e5e5e7;
+            position: relative;
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: #1d1d1f;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .offer-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .offer-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(29, 29, 31, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .offer-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .offer-icon {
+            background: #1d1d1f;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 14px;
+        }
+        
+        .offer-item h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 4px;
+        }
+        
+        .offer-item p {
+            font-size: 12px;
+            color: #515154;
+            line-height: 1.4;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            color: #515154;
+            font-size: 15px;
+        }
+        
+        .feature-list i {
+            color: #1d1d1f;
+            margin-right: 8px;
+            margin-top: 2px;
+            font-size: 12px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 8px;
+            padding: 20px 16px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #1d1d1f;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .service-icon {
+            color: #1d1d1f;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .service-card h4 {
+            color: #1d1d1f;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .service-card p {
+            color: #515154;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .stats-section {
+            background: #1d1d1f;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .stats-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #86868b;
+            font-weight: 400;
+        }
+        
+        .cta-section {
+            background: #f5f5f7;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 24px 0;
+        }
+        
+        .cta-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+        }
+        
+        .cta-text {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #515154;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            background: #1d1d1f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #515154;
+        }
+        
+        .cta-button i {
+            margin-right: 6px;
+        }
+        
+        .cta-button-secondary {
+            background: transparent;
+            color: #1d1d1f;
+            border: 1px solid #e5e5e7;
+        }
+        
+        .cta-button-secondary:hover {
+            background: #1d1d1f;
+            color: #ffffff;
+            border-color: #1d1d1f;
+        }
+        
+        .contact-info {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            color: #515154;
+            font-size: 14px;
+        }
+        
+        .contact-icon {
+            background: #1d1d1f;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+        
+        .footer {
+            background: #1d1d1f;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .footer-tagline {
+            color: #86868b;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #86868b;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(134, 134, 139, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+        
+        .footer-link:hover {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .email-content {
+                padding: 20px 16px;
+            }
+            
+            .email-header {
+                padding: 20px 16px;
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .logo-section {
+                justify-content: center;
+            }
+            
+            .logo-bzz {
+                font-size: 48px;
+            }
+            
+            .logo-dot {
+                font-size: 48px;
+            }
+            
+            .logo-ma {
+                font-size: 48px;
+            }
+            
+            .brand-info {
+                text-align: center;
+            }
+            
+            .brand-tagline {
+                font-size: 12px;
+            }
+            
+            .brand-description {
+                font-size: 14px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <span class="logo-bzz">BZZ</span>
+                <span class="logo-dot">.</span>
+                <span class="logo-ma">ma</span>
+            </div>
+            
+            <!-- Brand Information -->
+            <div class="brand-info">
+                <div class="brand-tagline">Solutions IT Professionnelles</div>
+                <div class="brand-description">Expert IT au Maroc</div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="email-content">
+            <div class="greeting">
+                Bonjour l'équipe Cohorlinktis,
+            </div>
+            
+            <div class="intro-text">
+                Je me permets de vous contacter concernant <strong>Bzz.ma</strong>, entreprise spécialisée dans les solutions IT professionnelles au Maroc. Ayant identifié Cohorlinktis comme une société dynamique dans le consulting, je pense que nos services peuvent parfaitement soutenir votre infrastructure informatique.
+            </div>
+            
+            <!-- Trust Section -->
+            <div class="trust-section">
+                <div class="trust-badge">Entreprise de Confiance</div>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <span class="trust-number">500+</span>
+                        <span class="trust-label">Entreprises</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">24h</span>
+                        <span class="trust-label">Intervention</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">98%</span>
+                        <span class="trust-label">Satisfaction</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">10+</span>
+                        <span class="trust-label">Années</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h4>Réparation Équipements</h4>
+                    <p>MacBook, PC, laptops - Toutes marques</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Maintenance</h4>
+                    <p>Contrats sur mesure et support 24/7</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Support Technique</h4>
+                    <p>Intervention d'urgence prioritaire</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Récupération Données</h4>
+                    <p>Technologies avancées de récupération</p>
+                </div>
+            </div>
+            
+            <!-- Special Offer -->
+            <div class="offer-section">
+                <div class="offer-badge">Offre Spéciale</div>
+                <div class="offer-title">Pour les Entreprises de Consulting</div>
+                <div class="offer-grid">
+                    <div class="offer-item">
+                        <div class="offer-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h5>Audit Gratuit</h5>
+                        <p>Évaluation complète de votre infrastructure IT</p>
+                    </div>
+                    <div class="offer-item">
+                        <div class="offer-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h5>Contrat Sur Mesure</h5>
+                        <p>Maintenance adaptée à vos besoins spécifiques</p>
+                    </div>
+                    <div class="offer-item">
+                        <div class="offer-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Support Prioritaire</h5>
+                        <p>Intervention d'urgence garantie sous 2h</p>
+                    </div>
+                    <div class="offer-item">
+                        <div class="offer-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5>Tarifs Préférentiels</h5>
+                        <p>Remises partenariat long terme</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="cta-title">Discutons de vos besoins</div>
+                <div class="cta-buttons">
+                    <a href="tel:+212522XXXXXX" class="cta-button">
+                        <i class="fas fa-phone"></i>
+                        Appeler
+                    </a>
+                    <a href="https://wa.me/212600XXXXXX" class="cta-button cta-button-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            +212 522 XXX XXX
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            +212 600 XXX XXX
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <strong>Site Web</strong><br>
+                            www.bzz.ma
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong>Email</strong><br>
+                            contact@bzz.ma
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="intro-text">
+                Je reste à votre disposition pour un rendez-vous à Casablanca.
+                <br><br>
+                Cordialement,<br>
+                <strong>[Votre Nom]</strong><br>
+                Bzz.ma
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">Bzz.ma</div>
+            <div class="footer-tagline">Solutions IT Professionnelles au Maroc</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Services</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">À Propos</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
